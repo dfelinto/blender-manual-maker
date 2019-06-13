@@ -48,8 +48,11 @@ if [[ $# -eq 2 ]]; then
   print_debug "Page: ${PAGE}"
 fi
 
-cd ~/src/blender/blender-docs
-source venv/bin/activate
+cd $BASE_FOLDER
+
+if [[ -d $BASE_FOLDER/venv ]]; then
+  source venv/bin/activate
+fi
 
 make $PROJECT
 xdg-open "$BASE_FOLDER/build/html/$PAGE"
