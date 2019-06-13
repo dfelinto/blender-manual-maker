@@ -55,6 +55,14 @@ So the example below uses `"${workspaceFolder}/../"` to pass the base folder whe
 }
 ```
 
+### Workflow
+
+* Edit to your heart's content.
+* Build with `Ctrl + Shift + B`.
+* Hit refresh in the *Browser Preview*.
+
+![Visual Studio Code](http://www.dalaifelinto.com/ftp/vs-code-screenshot.png)
+
 ## Advanced Tips
 * It is better to use [virtual environment](https://docs.python-guide.org/dev/virtualenvs/) to install the python tools to build the manual.
 If you do so make sure to create it as `venv` under the blender_docs folder.
