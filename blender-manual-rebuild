@@ -1,0 +1,56 @@
+#!/bin/bash
+
+BASE_FOLDER=~/src/blender/blender-docs
+
+PROJECT=""
+PAGE=index.html
+
+
+function print_help()
+{
+  echo "Usage: blender-manual-rebuild DOCS_FOLDER [/full/path/to/file/that/changed.rst]"
+  echo "For example: ./blender-manual-rebuild /src/blender_docs /src/blender_docs/manual/editors/outliner.rst"
+}
+
+function print_debug()
+{
+  echo $1
+}
+
+if [[ $# -eq 0 ]]; then
+  print_help
+  exit
+fi
+
+if [[ $# -gt 0 ]]; then
+  BASE_FOLDER=$(realpath $1)
+fi
+
+if [[ ! -d $BASE_FOLDER ]]; then
+  echo "Error: \"$BASE_FOLDER\" is not a valid folder."
+  print_help
+  exit
+fi
+
+print_debug "Base folder: ${BASE_FOLDER}"
+
+if [[ $# -eq 2 ]]; then
+  # Converting base folder to a regex syntax
+  # so we get \/src\/blender-docs
+  regex=$(echo ${BASE_FOLDER}/manual | sed -e "s/\//\\\\\//g")
+
+  # Extract first subfolder of BLENDER_FOLDER/manual
+  PROJECT=$(realpath $2 | sed -e "s/${regex}\/\(.*\)\/.*/\1/")
+  print_debug "Project: ${PROJECT}"
+
+  # Extract page to update
+  PAGE=$(realpath $2 | sed -e "s/${regex}\/\(.*\).rst/\1.html/")
+  print_debug "Page: ${PAGE}"
+fi
+
+cd ~/src/blender/blender-docs
+source venv/bin/activate
+
+make $PROJECT
+xdg-open "$BASE_FOLDER/build/html/$PAGE"
+echo "$BASE_FOLDER/build/html/$PAGE"
