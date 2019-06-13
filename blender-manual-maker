@@ -8,8 +8,8 @@ PAGE=index.html
 
 function print_help()
 {
-  echo "Usage: blender-manual-rebuild DOCS_FOLDER [/full/path/to/file/that/changed.rst]"
-  echo "For example: ./blender-manual-rebuild /src/blender_docs /src/blender_docs/manual/editors/outliner.rst"
+  echo "Usage: blender-manual-maker DOCS_FOLDER [/full/path/to/file/that/changed.rst]"
+  echo "For example: ./blender-manual-maker /src/blender_docs /src/blender_docs/manual/editors/outliner.rst"
 }
 
 function print_debug()
