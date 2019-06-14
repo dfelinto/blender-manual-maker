@@ -4,7 +4,7 @@ Script to help rebuilding the Blender manual.
 I use it as part of a pipeline inside VS Code.
 
 ## First Steps
-* Download and build the Blender manual following the official instructions.
+* Download and build the [Blender manual](https://docs.blender.org/manual/en/dev/) following the official instructions.
 * I recommend the [Browser Preview](https://marketplace.visualstudio.com/items?itemName=auchenberg.vscode-browser-preview)
 extension in Visual Studio Code to check your changes after you rebuild.
 
