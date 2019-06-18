@@ -40,7 +40,7 @@ if [[ $# -eq 2 ]]; then
   regex=$(echo ${BASE_FOLDER}/manual | sed -e "s/\//\\\\\//g")
 
   # Extract first subfolder of BLENDER_FOLDER/manual
-  PROJECT=$(realpath $2 | sed -e "s/${regex}\/\(.*\)\/.*/\1/")
+  PROJECT=$(realpath $2 | sed -e "s/${regex}\/\([^\/]*\)\/.*/\1/")
   print_debug "Project: ${PROJECT}"
 
   # Extract page to update
