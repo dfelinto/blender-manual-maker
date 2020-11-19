@@ -37,8 +37,7 @@ So the example below uses `"${workspaceFolder}/../"` to pass the base folder whe
                 "${file}"
             ],
             "group": {
-                "kind": "build",
-                "isDefault": true
+                "kind": "build"
             },
             "problemMatcher": []
         },
@@ -49,7 +48,8 @@ So the example below uses `"${workspaceFolder}/../"` to pass the base folder whe
             "args": [
                 "${workspaceFolder}/../"
             ],
-            "group": "build"
+            "group": "build",
+            "isDefault": true
         }
     ]
 }
